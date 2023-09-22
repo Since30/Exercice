@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=Lalezar&display=swap');
+$color-primary:rgb(0, 0, 0);
+$color-secondary:rgb(246, 247, 243);
+$color-tertiary:rgb(146,197,86);
+
+@mixin font-family($font-family) {
+    font-family: $font-family;
+  }
+  
+  @mixin font-size($font-size) {
+    font-size: $font-size;
+  
+      @media (min-width: 768px) {
+          font-size: $font-size * 1.5;
+      }
+  }
+  
+  @mixin color($color) {
+    color: $color;
+      &:hover {
+          color: darken($color, 10%);
+      }
+  
+      &:active {
+          color: darken($color, 20%);
+      }
+  }
+
+header.tete{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+header .close{
+    justify-content: right;
+    color: $color-primary;
+
+}
+
+header .close a{
+    color: $color-primary;
+    text-decoration: none;
+    font-size: 2rem;
+    margin-right: 50px;
+    &:hover{
+        color: $color-tertiary;
+    }
+}
+
+.title{
+    @include font-family('Francois One');
+    @include font-size(2rem);
+    @include color($color-primary);
+    text-align: center;
+    
+}
+
+
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+form{
+    grid-column: 2/3;
+
+}
+
+
+input {
+    width: 100%;
+    height: 30px;
+    border: 2px solid $color-secondary;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    box-shadow: inset 0 0 0 0 $color-secondary  ;
+    padding: 15px;
+    margin-bottom: 15px;
+    @include font-family('Francois One');
+    @include color($color-primary);
+    background-color: $color-secondary;
+}
+
+.btn-next,.btn-log {
+    width: 50%;
+    height: 50px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 0 0 0 $color-secondary;
+    background-color: $color-tertiary;
+    color: $color-secondary;
+    @include font-family('Francois One');
+    @include font-size(1rem);
+    transition: all 0.3s ease-in-out;
+     &:hover{
+        box-shadow: inset 500px 0 0 0 $color-secondary;
+        color: $color-tertiary;
+     }
+    
+}
+
+label {
+    @include font-family('Francois One');
+    @include font-size(1.5rem);
+    @include color($color-primary);
+}
+
+.error {
+    @include font-family('Francois One');
+    @include font-size(1.5rem);
+    @include color($color-primary);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+form a{
+   
+    color: blue;
+}
+@media screen and (max-width: 768px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1{
+        @include font-family('Francois One');
+        @include font-size(3rem);
+        @include color($color-primary);
+        text-align: center;
+        font-size: larger;
+        text-shadow: 1px 1px 2px black;;
+    }
+    form{
+        grid-column: 1/4;
+    }
+    input{
+        width: 100%;
+        height: 30px;
+        border: 2px solid $color-secondary;
+        border-radius: 15px;
+        box-shadow:6 6 0 0 $color-primary  ;
+        padding: 15px;
+        margin-bottom: 15px;
+        @include font-family('Francois One');
+        @include font-size(1.5rem);
+        @include color($color-primary);
+        background-color: $color-secondary;
+        &:hover{
+            border: 2px solid $color-tertiary;
+        }
+    }
+
+
+
+    
+    .btn-next {
+        width: 50%;
+        height: 50px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+        box-shadow: inset 0 0 0 0 $color-secondary;
+        background-color: $color-tertiary;
+        color: $color-secondary;
+        @include font-family('Francois One');
+        @include font-size(1rem);
+        transition: all 0.3s ease-in-out;
+         &:hover{
+            box-shadow: inset 500px 0 0 0 $color-secondary;
+            color: $color-tertiary;
+         }
+        
+    }
+
+    
+    label {
+        @include font-family('Francois One');
+        @include font-size(1.5rem);
+        @include color($color-primary);
+        text-shadow: 1px 1px 2px black;
+    }
+    
+    .error {
+        @include font-family('Francois One');
+        @include font-size(1.5rem);
+        @include color($color-primary);
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+}
+
